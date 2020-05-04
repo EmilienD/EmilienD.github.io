@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://emilienduri.eu/fr/introduction/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://emilienduri.eu/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="http://emilienduri.eu/fr/introduction/"
+                />
+  </url>
+  
+  <url>
     <loc>http://emilienduri.eu/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
