@@ -1,82 +1,121 @@
 <!DOCTYPE html>
-<html lang="en-us"><head>
-	<meta name="generator" content="Hugo 0.69.2" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+<html>
 
-    <title>
-            Emilien Durieu
-    </title>
-
-    
-    <link rel="stylesheet" href="/css/style.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-    
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Emilien Durieu" />
-
-    
-        
-    
+<head>
+  <title>Express yourself</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background-size: 12em;
+    --color-1: #345f88;
+    --color-2: #e3d26F;
+    --color-3: #88cbe7;
+    background-color: var(--color-3);
+  }
 
-<main>
-  <div class="block introduction">
-    <div class="column left">
-      <img src="/images/Emilien2coul.svg" class="portrait" alt="Portrait" />
-    </div>
-    <div class="column right"><h1>Hello.</h1><h2>I am <em>Emilien.</em></h2>
-      <p>
-<p><a href="/fr">Version francophone.</a>.</p>
-<p>This site answers a few questions about me.
-<em>Not that anyone ever stopped me in the street to ask me those but since you&rsquo;re here, I thought you might be interested.</em></p>
-<h3 id="but-who-are-you">&ldquo;But who are you?&rdquo;</h3>
-<p><em>A deeply philosophical question if you really think about it, but let&rsquo;s keep it casual until we know each other better.</em></p>
-<p>My name is Emilien Durieu, I&rsquo;m a 30-year-old nerd who enjoys programming either to make people&rsquo;s life easier,
-or more fun.
-I&rsquo;m fluent in French, English and Javascript.
-What I enjoy most in my work is building high tech web apps.
-I like good food, travelling and oh wait this isn&rsquo;t Tinder, sorry.</p>
-<p>Anyway if you wanna get in touch, don&rsquo;t hesitate to send me an email
-to <a href="mailto:hello@emilienduri.eu?subject=Looking%20for%20a%20dev">hello@emilienduri.eu</a>.
-<em>Maybe we can also go for a beer or something sometimes.</em></p>
-<h3 id="im-looking-for-a-developer-for-my-companystartupproject-are-you-interested">&ldquo;I&rsquo;m looking for a developer for my company/startup/project, are you interested?&rdquo;</h3>
-<p>I am very interested, don&rsquo;t hesitate to <a href="mailto:hello@emilienduri.eu?subject=Looking%20for%20a%20dev">reach out</a>!
-I&rsquo;m a full stack developer with experience in a team setting as well as building entire projects on my own.
-My strong suits are React, NodeJS and PostgreSQL, and I have some experience with VueJS, Rust and MongoDB.</p>
-<h3 id="i-need-a-website-can-you-help">&ldquo;I need a website, can you help?&rdquo;</h3>
-<p>I certainly can! If you need a webshop or a blog, or even a simple website for your business or association, I
-can set everything up for you. <a href="mailto:hello@emilienduri.eu?subject=Put%20me%20on%20the%20Internet">Just ask!</a></p>
-<h3 id="what-else-can-you-do-for-me">&ldquo;What else can you do for me?&rdquo;</h3>
-<p><em>I cook a terrific chili sin carne that makes delicious burritos, but I guess that&rsquo;s not what you mean.</em></p>
-<p>If you have any task that is very repetitive, there&rsquo;s a good chance I can help you automate it.
-For example if you&rsquo;re using excel for some processes and are tired of it or reaching its limits, <a href="mailto:hello@emilienduri.eu?subject=Bloody%20Exc-hell">send me an email</a> and let&rsquo;s talk about it.</p>
+  @media (prefers-color-scheme: dark) {
+    body {
+      --color-1: #0c0c0e;
+      --color-2: #e3d26F;
+      --color-3: #1e1f22;
+      3e92cc
+    }
+  }
 
+  form {
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 
-</p>
+  form>* {
+    text-align: center;
+    color: var(--color-2);
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+  }
 
-      <div class="links"><a rel="me" href="https://github.com/EmilienD" title="Github">
-          <span class="fab fa-github"></span>
-        </a><a rel="me" href="www.linkedin.com/in/emilien-durieu-802105133" title="LinkedIn">
-          <span class="fab fa-linkedin"></span>
-        </a></div>
-    </div>
-  </div></main>
+  input,
+  textarea {
+    font-family: sans-serif;
+    font-size: 3rem;
+  }
 
-<footer>
-    <div class="column"></div>
-    <div class="column">
-        Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/hallo-hugo/'>Hallo</a> theme.
-    </div>
-</footer></body>
+  svg {
+    height: 5em;
+  }
+
+  form label {
+    background-size: 3em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  form>* {
+    border: 0px solid transparent;
+    background-color: var(--color-1);
+  }
+
+  form button {
+    background-color: var(--color-2);
+  }
+
+</style>
+
+<body class="flat dark">
+  <form name="contact" id="contactForm" data-netlify="true">
+    <input type="email" id="email" name="email" placeholder="your-email@example.com" />
+    <textarea id="message" name="message" placeholder="📝"></textarea>
+    <label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+        <path fill="var(--color-2)"
+          d="M 4 5 C 2.895 5 2 5.895 2 7 L 2 23 C 2 24.105 2.895 25 4 25 L 26 25 C 27.105 25 28 24.105 28 23 L 28 7 C 28 5.895 27.105 5 26 5 L 4 5 z M 23 8 C 24.105 8 25 8.895 25 10 C 25 11.105 24.105 12 23 12 C 21.895 12 21 11.105 21 10 C 21 8.895 21.895 8 23 8 z M 9 12.001953 C 9.61925 12.001953 10.238437 12.238437 10.710938 12.710938 L 13.972656 15.972656 L 15 17 L 16.15625 18.15625 C 16.57825 18.57825 17.259641 18.574344 17.681641 18.152344 C 18.104641 17.730344 18.104641 17.044094 17.681641 16.621094 L 16.529297 15.470703 L 17.289062 14.710938 C 18.234063 13.765937 19.765937 13.765937 20.710938 14.710938 L 25 19 L 25 22 L 5 22 L 5 15 L 7.2890625 12.710938 C 7.7615625 12.238437 8.38075 12.001953 9 12.001953 z">
+        </path>
+      </svg><input type="file" name="selfie" style="opacity: 0; position: absolute;" id="selfie" /></label>
+    <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+        <path fill="var(--color-1)"
+          d="M 26 3 A 1 1 0 0 0 25.716797 3.0429688 A 1 1 0 0 0 25.636719 3.0683594 L 3.6503906 10.060547 L 3.6503906 10.064453 A 1 1 0 0 0 3 11 A 1 1 0 0 0 3.4824219 11.853516 L 10.164062 17.154297 L 23.373047 6.6269531 L 12.845703 19.835938 L 18.142578 26.513672 A 1 1 0 0 0 19 27 A 1 1 0 0 0 19.935547 26.349609 L 19.939453 26.349609 L 26.9375 4.34375 A 1 1 0 0 0 26.957031 4.2832031 A 1 1 0 0 0 27 4 A 1 1 0 0 0 26 3 z">
+        </path>
+      </svg></button>
+  </form>
+  <script>
+    selfie.addEventListener('input', (e) => {
+      const parent = e.target.parentElement
+      parent.style.backgroundImage = ""
+      if (parent.querySelector('label a')) {
+        parent.querySelector('a').remove()
+      }
+
+      const file = e.target.files[0];
+      const url = URL.createObjectURL(file)
+      if (/^image\/.+/.test(file.type)) {
+        parent.style.backgroundImage = `url(${url})`
+      } else {
+        const link = document.createElement('a')
+        link.href = url
+        link.target = "_blank"
+        link.id = "fileLink"
+        link.innerText = file.name
+        parent.append(link)
+      }
+    })
+  </script>
+</body>
+
 </html>
