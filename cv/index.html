@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilien - Senior Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root,
+        .light {
+            --text: #1a1a1a;
+            --text-light: #666;
+            --accent: #58A4B0;
+            --border: #e5e5e5;
+            --bg: #fff;
+        }
+
+        .dark {
+            --text: #f5f5f5;
+            --text-light: #a0a0a0;
+            --border: #333;
+            --bg: #111;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #f5f5f5;
+                --text-light: #a0a0a0;
+                --border: #333;
+                --bg: #111;
+            }
+        }
+
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 25% 1fr;
+            gap: 60px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 60px;
+            height: fit-content;
+        }
+
+        .face-container {
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg);
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .sidebar section {
+            margin-bottom: 24px;
+        }
+
+        .sidebar h2 {
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar .contact {
+            font-size: 14px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        ul,
+        ol {
+            list-style-type: none;
+        }
+
+        .job {
+
+            margin-bottom: 24px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .job-company {
+            color: var(--text-light);
+        }
+
+        .job-period {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .job-location {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .job-description {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .education-name {
+            font-weight: 500;
+        }
+
+        .education-period {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill {
+            background: var(--border);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .contact {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--text-light);
+            color: var(--bg);
+        }
+
+        .contact-print {
+            display: none;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                max-width: none;
+                display: block;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            li {
+                page-break-inside: avoid;
+            }
+
+            .contact,
+            .face-container,
+            button {
+                display: none;
+            }
+
+            .contact-print {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle" id="theme-toggle">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg class="icon" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="ic_fluent_dark_theme_24_regular" fill="currentColor" fill-rule="nonzero">
+                    <path
+                        d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z">
+                    </path>
+                </g>
+            </g>
+        </svg>
+    </button>
+    <aside class="sidebar">
+        <header>
+            <div class="face-container dark"><img src="Emilien2coul.svg" /></div>
+            <h1>Emilien Durieu</h1>
+            <p class="subtitle">Senior Full Stack Developer</p>
+        </header>
+
+        <section>
+            <h2>Contact</h2>
+            <p class="contact">
+                <a href="mailto:contact@emilienduri.eu">contact@emilienduri.eu</a> ·
+                <a href="https://www.linkedin.com/in/emilien-durieu-802105133/">LinkedIn</a> ·
+                <a href="https://github.com/EmilienD">GitHub</a> · <a href="tel:+32488383083">+32 488 383 083</a>
+            </p>
+            <p class="contact-print">
+                <a href="mailto:contact@emilienduri.eu">contact@emilienduri.eu</a> ·
+                <a
+                    href="https://www.linkedin.com/in/emilien-durieu-802105133/">www.linkedin.com/in/emilien-durieu-802105133/</a>
+                ·
+                <a href="https://github.com/EmilienD">github.com/EmilienD</a> · <a href="tel:+32488383083">+32 488 383
+                    083</a>
+            </p>
+        </section>
+    </aside>
+
+    <main class="content">
+        <section class="experience">
+            <h2>Experience</h2>
+            <ol>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Senior Full Stack Developer</span>
+                            <span class="job-company"> — Position Green</span>
+                        </div>
+                        <span class="job-period">Aug 2025 – Present</span>
+                    </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                    <p class="job-description">Implemented an AI prompt management tool. <br /> Stack: React - .NET -
+                        SQLServer
+                        <br />
+                        Created an export functionality for Greenomy customers data, maintained the sunsetting Greenomy
+                        product.
+                    </p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Senior Full Stack Developer</span>
+                            <span class="job-company"> — Greenomy (part of Position Green)</span>
+                        </div>
+                        <span class="job-period">Mar 2023 – Aug 2025</span>
+                    </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                    <p class="job-description">Co-designed a low-code, backend-drive UI reporting engine. <br /> Stack:
+                        React -
+                        NestJS GraphQL - MongoDB<br />
+                        Implemented standard industry practices, mentored junior developers.
+                    </p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Full Stack Developer</span>
+                            <span class="job-company"> — freelance</span>
+                        </div>
+                        <span class="job-period">Aug 2022 – Mar 2026</span>
+                    </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                    <p class="job-description">Built a mental health institution directory for a group of mental health
+                        actors. <br /> Stack: Svelte - React - NestJS - PostgreSQL
+                    </p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Full Stack Developer</span>
+                            <span class="job-company"> — Wequity</span>
+                        </div>
+                        <span class="job-period">Feb 2022 – Mar 2023</span>
+                    </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                    <p class="job-description">Built interactive dashboards for the banking sector, in conjunction with
+                        the AI team. <br /> Stack: VueJs - NestJS - PostgreSQL <br />
+                        Initiated and led learning sessions to teach non-technical colleagues about essential
+                        technological knowledge in a SaaS.
+                    </p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Full Stack Developer</span>
+                            <span class="job-company"> — freelance</span>
+                        </div>
+                        <span class="job-period">Jan 2022 – May 2024</span>
+                    </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                    <p class="job-description">Built a provisioning portal for a telephony company. <br /> Stack: React
+                        - Parse
+                        Platform - PostgreSQL
+                    </p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">JavaScript Developer</span>
+                            <span class="job-company"> — Odoo</span>
+                        </div>
+                        <span class="job-period">Jul 2020 – Aug 2021</span>
+                    </div>
+                    <p class="job-location">Belgium</p>
+                    <p class="job-description">Helped develop a multi-purpose web content editor in a team of five, in
+                        plain old JavaScript.</p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Full Stack Developer</span>
+                            <span class="job-company"> — Brickbook</span>
+                        </div>
+                        <span class="job-period">Aug 2019 – Jun 2020</span>
+                    </div>
+                    <p class="job-location">Antwerp Area, Belgium</p>
+                    <p class="job-description">Built an entire tender management and contractor network platform from
+                        scratch as the sole
+                        technical member of the company. <br /> Stack: React - Fastify GraphQL API - PostgreSQL</p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Web Developer</span>
+                            <span class="job-company"> — Qover</span>
+                        </div>
+                        <span class="job-period">Sep 2017 – Jul 2019</span>
+                    </div>
+                    <p class="job-location">Brussels Area, Belgium</p>
+                    <p class="job-description">Helped build several white-labeled full stack insurance products from
+                        scratch in a small team. <br /> Stack: React - Express REST API - MongoDB</p>
+                </li>
+
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Developer</span>
+                            <span class="job-company"> — freelance</span>
+                        </div>
+                        <span class="job-period">Jun 2017 – Jun 2018</span>
+                    </div>
+                    <p class="job-location">Brussels Area, Belgium</p>
+                    <p class="job-description">Developed an invoice generation and mailing CLI tool for a telephony
+                        company. <br /> Stack: Vorpal - NodeJS - MySQL</p>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+
+            <ul class="education-item">
+                <li class="education-name">Institut Paul Lambin</li>
+                <li class="education-period">2014 – 2017</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul class="skills">
+                <li class="skill">JavaScript</li>
+                <li class="skill">TypeScript</li>
+                <li class="skill">React</li>
+                <li class="skill">Node.js</li>
+                <li class="skill">NestJS</li>
+                <li class="skill">PostgreSQL</li>
+                <li class="skill">GraphQL</li>
+                <li class="skill">REST APIs</li>
+                <li class="skill">Docker</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (saved === 'dark' || (!saved && prefersDark)) {
+            body.classList.add('dark');
+        } else if (saved === 'light') {
+            body.classList.add('light')
+        }
+
+        toggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+            const themeToUse = body.classList.contains('dark') ? 'light' : 'dark';
+            body.classList.replace(currentTheme, themeToUse);
+            localStorage.setItem('theme', themeToUse);
+        });
+    </script>
+</body>
+
+</html>
